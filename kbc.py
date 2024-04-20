@@ -2,12 +2,17 @@ import random
 i = 1
 questions = ["Who is the Father of our Nation?", "Who was the first President of India?", "Who is known as Father of Indian Constitution?", "Who was the first Prime Minister of India?", "Who invented Computer?", "Who wrote the National Anthem – Jana Gana Mana?"]
 answers = ["Mahatma Gandhi", "Dr. Rajendra Prasad", "Dr. B. R. Ambedkar", "Jawaharlal Nehru", "Charles Babbage", "Rabindra Nath Tagore"]
+correct_ans = 0
+prize_amount = 0
 options=[]
+prize_amounts = [5000,10000,20000,40000,80000,160000,320000,640000,1250000,2500000,5000000,10000000,500000000]
 while True:
     quesno=random.randint(0, len(questions) - 1)
+    print("-"*10)
     print(f"Question {i} : ")
     i+=1
     print(questions[quesno])
+    print("-"*10)
     while True:
         option = random.randint(0, len(answers)-1)
         if option in options or option==quesno:
@@ -22,16 +27,21 @@ while True:
     print("3. ", answers[options[2]])
     print("4. ", answers[options[3]])
     choosen = int(input("Please enter your answer number : "))
+    print("-"*10)
     if choosen<=4:
         ans = options[choosen-1]
     else:
         print("Ayoo please choose a number between 1 and 4 only")
     if quesno == ans:
         print("Damn you nailed it!!!")
-        print("-"*10)
-        print("-"*10)
+        correct_ans+=1
+        prize_amount = prize_amounts[correct_ans-1]
+        print(f"Congratulations! You won {prize_amount} INR")
     else:
         print("Ouch youu lost")
+        prize_amount = prize_amounts[correct_ans-1]
+        print(f"Dont't worry! You will still take {prize_amount} INR with yourself")
+        print("-"*10)
         break
     questions.pop(quesno)
     answers.pop(quesno)
