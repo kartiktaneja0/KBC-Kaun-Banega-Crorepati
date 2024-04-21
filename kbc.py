@@ -1,3 +1,7 @@
+# Create a program capable of displaying questions to the user like KBC. 
+# Use List data type to store the questions and their correct answers. 
+# Display the final amount the person is taking home after playing the game.
+
 import random
 i = 1
 questions = ["Who is the Father of our Nation?", "Who was the first President of India?", "Who is known as Father of Indian Constitution?", "Who was the first Prime Minister of India?", "Who invented Computer?", "Who wrote the National Anthem – Jana Gana Mana?"]
