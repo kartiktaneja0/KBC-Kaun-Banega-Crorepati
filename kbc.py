@@ -30,12 +30,36 @@ while True:
     print("2. ", answers[options[1]])
     print("3. ", answers[options[2]])
     print("4. ", answers[options[3]])
+    print("'Type 5 to use lifelines'")
     choosen = int(input("Please enter your answer number : "))
     print("-"*10)
-    if choosen<=4:
+    if 1<=choosen<=4:
         ans = options[choosen-1]
+    if choosen==5:
+        print("""-----LIFELINE MENU-------""")
+        print("1. 50-50")
+        life=int(input("Please enter the lifeline you want to use: "))
+        if life==1:
+            ab=0
+            while True:
+                popp = options[random.randint(0,3-ab)]
+                if popp == quesno:
+                    continue
+                else:
+                    options.remove(popp)
+                    ab+=1
+                if len(options)==2:
+                    break
+            print(questions[quesno])
+            print("-"*10)
+            print("1. ", answers[options[0]])
+            print("2. ", answers[options[1]])
+            choosen = int(input("Please enter your answer number : "))
+            print("-"*10)
+            ans = options[choosen-1]            
     else:
         print("Ayoo please choose a number between 1 and 4 only")
+
     if quesno == ans:
         print("Damn you nailed it!!!")
         correct_ans+=1
